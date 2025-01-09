@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, ThumbsUp, Calendar } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { MessageCircle, ThumbsUp, Calendar } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface Post {
