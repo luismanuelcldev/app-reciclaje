@@ -38,7 +38,7 @@ export interface PropiedadesDeBoton
     comoHijo?: boolean
 }
 
-const Boton = React.forwardRef<HTMLButtonElement, PropiedadesDeBoton>(
+const Button = React.forwardRef<HTMLButtonElement, PropiedadesDeBoton>(
     ({ className, variant, size, comoHijo = false, ...props }, ref) => {
         const Comp = comoHijo ? Slot : "button"
         return (
@@ -50,6 +50,6 @@ const Boton = React.forwardRef<HTMLButtonElement, PropiedadesDeBoton>(
         )
     }
 )
-Boton.displayName = "Boton"
+Button.displayName = "Boton"
 
-export { Boton, variantesDeBoton }
+export { Button, variantesDeBoton }
