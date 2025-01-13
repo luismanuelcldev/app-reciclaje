@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 const prisma = new PrismaClient();
 export const usuarioController = {
     // Registro de usuario
-    async registro(req: Request, res: Response) {
+    registro: async (req: Request, res: Response): Promise<void> => {
         try {
             const { email, nombre, password } = req.body;
             // Verificar si el usuario ya existe
@@ -13,7 +13,8 @@ export const usuarioController = {
                 where: { email },
             });
             if (usuarioExistente) {
-                return res.status(400).json({ mensaje: 'El usuario ya existe' });
+                res.status(400).json({ mensaje: 'El usuario ya existe' });
+                return;
             }
             // Encriptar contraseña
             const salt = await bcryptjs.genSalt(10);
@@ -46,7 +47,7 @@ export const usuarioController = {
         }
     },
     // Login de usuario
-    async login(req: Request, res: Response) {
+    login: async (req: Request, res: Response): Promise<void> => {
         try {
             const { email, password } = req.body;
             // Buscar usuario
@@ -54,12 +55,13 @@ export const usuarioController = {
                 where: { email },
             });
             if (!usuario) {
-                return res.status(400).json({ mensaje: 'Usuario no encontrado' });
+                res.status(400).json({ mensaje: 'Usuario no encontrado' });
+                return;
             }
             // Verificar contraseña
             const passwordValida = await bcryptjs.compare(password, usuario.password);
             if (!passwordValida) {
-                return res.status(400).json({ mensaje: 'Contraseña incorrecta' });
+                res.status(400).json({ mensaje: 'Contraseña incorrecta' });
             }
             // Generar JWT
             const token = jwt.sign(
