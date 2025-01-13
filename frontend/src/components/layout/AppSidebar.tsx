@@ -8,13 +8,13 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-} from "@/components/ui/sidebar,"
+} from "@/components/ui/sidebar,.tsx"
 import { Link } from "react-router-dom"
 
 const items = [
     {
         title: "Inicio",
-        url: "/inicio",
+        url: "/",
         icon: Home,
     },
     {
