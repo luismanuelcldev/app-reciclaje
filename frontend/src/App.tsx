@@ -1,19 +1,18 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster.tsx";
+import { Toaster as Sonner } from "@/components/ui/sonner.tsx";
+import { TooltipProvider } from "@/components/ui/tooltip.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar,";
-import { AppSidebar } from "@/components/layout/AppSidebar";
-import Navbar from "@/components/layout/Navbar";
-import Index from "@/pages/Index";
-import Inicio from "@/pages/Inicio";
-import Materiales from "@/pages/Materiales";
-import PuntosReciclaje from "@/pages/PuntosReciclaje";
-import Foro from "@/pages/Foro";
-import Perfil from "@/pages/Perfil";
-import Login from "@/pages/auth/Login";
-import Registro from "@/pages/auth/Registro";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar,.tsx";
+import { AppSidebar } from "@/components/layout/AppSidebar.tsx";
+import Navbar from "@/components/layout/Navbar.tsx";
+import Index from "@/pages/Index.tsx";
+import Materiales from "@/pages/Materiales.tsx";
+import PuntosReciclaje from "@/pages/PuntosReciclaje.tsx";
+import Foro from "@/pages/Foro.tsx";
+import Perfil from "@/pages/Perfil.tsx";
+import Login from "@/pages/auth/Login.tsx";
+import Registro from "@/pages/auth/Registro.tsx";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +31,6 @@ const App = () => (
                 <SidebarTrigger className="mb-4" />
                 <Routes>
                   <Route path="/" element={<Index />} />
-                  <Route path="/inicio" element={<Inicio />} />
                   <Route path="/materiales" element={<Materiales />} />
                   <Route path="/puntos-reciclaje" element={<PuntosReciclaje />} />
                   <Route path="/foro" element={<Foro />} />
