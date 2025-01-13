@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.tsx";
 import { Menu, X, Recycle } from "lucide-react";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const menuItems = [
-        { texto: "Inicio", ruta: "/inicio" },
+        { texto: "Inicio", ruta: "/" },
         { texto: "Materiales", ruta: "/materiales" },
         { texto: "Puntos de Reciclaje", ruta: "/puntos-reciclaje" },
         { texto: "Foro", ruta: "/foro" },
