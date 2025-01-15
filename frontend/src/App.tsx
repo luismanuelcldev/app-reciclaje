@@ -7,6 +7,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar,.tsx";
 import { AppSidebar } from "@/components/layout/AppSidebar.tsx";
 import Navbar from "@/components/layout/Navbar.tsx";
 import Index from "@/pages/Index.tsx";
+import Inicio from "@/pages/Inicio.tsx";
 import Materiales from "@/pages/Materiales.tsx";
 import PuntosReciclaje from "@/pages/PuntosReciclaje.tsx";
 import Foro from "@/pages/Foro.tsx";
@@ -31,6 +32,7 @@ const App = () => (
                 <SidebarTrigger className="mb-4" />
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/inicio" element={<Inicio />} />
                   <Route path="/materiales" element={<Materiales />} />
                   <Route path="/puntos-reciclaje" element={<PuntosReciclaje />} />
                   <Route path="/foro" element={<Foro />} />
