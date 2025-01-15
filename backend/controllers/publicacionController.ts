@@ -53,7 +53,7 @@ export const publicacionController = {
                     titulo,
                     contenido,
                     categoria,
-                    autorId,
+                    autorId: autorId ?? '',
                 },
                 include: {
                     autor: {
@@ -82,7 +82,7 @@ export const publicacionController = {
             const comentario = await prisma.comentario.create({
                 data: {
                     contenido,
-                    autorId,
+                    autorId: autorId ?? '',
                     publicacionId,
                 },
                 include: {

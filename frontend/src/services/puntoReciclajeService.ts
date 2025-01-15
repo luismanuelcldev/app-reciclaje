@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { authService } from './authService';
+import { authService } from './authService.ts';
 const API_URL = 'http://localhost:3000/api/puntos-reciclaje';
 export const puntoReciclajeService = {
     async obtenerTodos() {

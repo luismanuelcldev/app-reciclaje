@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 const prisma = new PrismaClient();
 export const puntoReciclajeController = {
     // Obtener todos los puntos de reciclaje
-    async obtenerTodos(req: Request, res: Response) {
+    async obtenerTodos(_: Request, res: Response) {
         try {
             const puntosReciclaje = await prisma.puntoReciclaje.findMany();
             res.json(puntosReciclaje);
