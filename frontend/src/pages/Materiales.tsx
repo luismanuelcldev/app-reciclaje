@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card.tsx";
+import { Badge } from "@/components/ui/badge.tsx";
 import { Leaf, Recycle, Trash2 } from "lucide-react";
 
 interface Material {

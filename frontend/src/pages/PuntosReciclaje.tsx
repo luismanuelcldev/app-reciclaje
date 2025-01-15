@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card.tsx";
+import { Input } from "@/components/ui/input.tsx";
+import { Button } from "@/components/ui/button.tsx";
 import { Search, MapPin } from "lucide-react";
 
 const PuntosReciclaje = () => {

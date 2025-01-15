@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import { Badge } from "@/components/ui/badge.tsx";
 import { MessageCircle, ThumbsUp, Calendar } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast.ts";
 
 interface Post {
     id: number;
@@ -41,7 +41,7 @@ const Foro = () => {
         }
     ]);
 
-    const handleLike = (postId: number) => {
+    const handleLike = (_postId: number) => {
         toast({
             title: "¡Gracias por tu voto!",
             description: "Tu apoyo ayuda a destacar contenido útil.",
