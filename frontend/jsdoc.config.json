@@ -1,0 +1,50 @@
+{
+    "source": {
+        "include": [
+            "dist"
+        ],
+        "includePattern": ".+\\.(js|jsx|ts|tsx)$",
+        "excludePattern": "(node_modules/|docs)"
+    },
+    "plugins": [
+        "plugins/markdown"
+    ],
+    "opts": {
+        "encoding": "utf8",
+        "destination": "./docs/",
+        "recurse": true,
+        "language": "es",
+        "locale": "es-ES"
+    },
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": [
+            "jsdoc",
+            "closure"
+        ]
+    },
+    "typescript": {
+        "enabled": true
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false,
+        "default": {
+            "outputSourceFiles": true,
+            "staticFiles": {
+                "include": []
+            }
+        },
+        "meta": {
+            "title": "Documentación App Reciclaje",
+            "description": "Documentación técnica de la aplicación de reciclaje",
+            "language": "es"
+        },
+        "i18n": {
+            "sourceCode": "Código fuente",
+            "methodParameters": "Parámetros",
+            "returnValue": "Valor retornado",
+            "link": "Enlace"
+        }
+    }
+}
