@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster.tsx";
 import { Toaster as Sonner } from "@/components/ui/sonner.tsx";
 import { TooltipProvider } from "@/components/ui/tooltip.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar,.tsx";
 import { AppSidebar } from "@/components/layout/AppSidebar.tsx";
 import Navbar from "@/components/layout/Navbar.tsx";
@@ -22,29 +22,28 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <SidebarProvider>
-          <div className="min-h-screen flex w-full bg-eco-bg">
-            <AppSidebar />
-            <main className="flex-1">
-              <Navbar />
-              <div className="container mx-auto px-4 py-8 animate-fade-in">
-                <SidebarTrigger className="mb-4" />
-                <Routes>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/inicio" element={<Inicio />} />
-                  <Route path="/materiales" element={<Materiales />} />
-                  <Route path="/puntos-reciclaje" element={<PuntosReciclaje />} />
-                  <Route path="/foro" element={<Foro />} />
-                  <Route path="/perfil" element={<Perfil />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/registro" element={<Registro />} />
-                </Routes>
-              </div>
-            </main>
-          </div>
-        </SidebarProvider>
-      </BrowserRouter>
+      <SidebarProvider>
+        <div className="min-h-screen flex w-full bg-eco-bg">
+          <AppSidebar />
+          <main className="flex-1">
+            <Navbar />
+            <div className="container mx-auto px-4 py-8 animate-fade-in">
+              <SidebarTrigger className="mb-4" />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/inicio" element={<Inicio />} />
+                <Route path="/materiales" element={<Materiales />} />
+                <Route path="/puntos-reciclaje" element={<PuntosReciclaje />} />
+                <Route path="/foro" element={<Foro />} />
+                <Route path="/perfil" element={<Perfil />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/registro" element={<Registro />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </Routes>
+            </div>
+          </main>
+        </div>
+      </SidebarProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
