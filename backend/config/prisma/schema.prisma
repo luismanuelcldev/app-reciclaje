@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Modelo de Usuario
+model Usuario {
+  id              String           @id @default(uuid())
+  email           String           @unique
+  nombre          String
+  password        String
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  puntosFavoritos PuntoReciclaje[] @relation("UsuarioPuntos")
+  publicaciones   Publicacion[]
+  comentarios     Comentario[]
+}
+
+// Modelo de Punto de Reciclaje
+model PuntoReciclaje {
+  id         String     @id @default(uuid())
+  nombre     String
+  direccion  String
+  latitud    Float
+  longitud   Float
+  materiales Material[]
+  horario    String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  usuarios   Usuario[]  @relation("UsuarioPuntos")
+}
+
+// Modelo de Material
+model Material {
+  id      String         @id @default(uuid())
+  nombre  String
+  puntoId String
+  punto   PuntoReciclaje @relation(fields: [puntoId], references: [id])
+}
+
+// Modelo de Publicación en el Foro
+model Publicacion {
+  id          String       @id @default(uuid())
+  titulo      String
+  contenido   String       @db.Text
+  categoria   String
+  autorId     String
+  autor       Usuario      @relation(fields: [autorId], references: [id])
+  comentarios Comentario[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+// Modelo de Comentario
+model Comentario {
+  id            String      @id @default(uuid())
+  contenido     String      @db.Text
+  autorId       String
+  autor         Usuario     @relation(fields: [autorId], references: [id])
+  publicacionId String
+  publicacion   Publicacion @relation(fields: [publicacionId], references: [id])
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}

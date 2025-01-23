@@ -20,7 +20,7 @@ app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/puntos-reciclaje', puntoReciclajeRoutes);
 // Ruta de prueba
 app.get('/', (_req, res) => {
-    res.json({ mensaje: 'API de Reciclaje Consciente funcionando correctamente' });
+    res.json({ mensaje: 'API de Reciclaje funcionando correctamente' });
 });
 // Manejo de errores global
 app.use((err: Error, _req: express.Request, res: express.Response) => {
