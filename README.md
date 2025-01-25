@@ -199,9 +199,14 @@ cd app-reciclaje
 Crear un archivo `.env` para las variables de entorno del backend:
 
 ```env
-MONGO_URI=mongodb://localhost:27017/reciclaje_db
-JWT_SECRET=supersecretkey
-PORT=4000
+# Configuración de la Base de Datos
+DATABASE_URL=
+# Configuración del Servidor
+PORT=
+NODE_ENV=development
+# JWT
+JWT_SECRET=
+JWT_EXPIRES_IN="24h"
 ```
 
 3️⃣ **Instalar dependencias:**
